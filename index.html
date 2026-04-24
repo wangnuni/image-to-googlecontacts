@@ -304,7 +304,8 @@
   function handleGoogleAuth() {
     const clientId = getClientId();
     if (!clientId) { alert('먼저 Google OAuth Client ID를 입력해주세요.'); return; }
-    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${encodeURIComponent(location.origin + location.pathname)}&response_type=token&scope=${encodeURIComponent(SCOPES)}`;
+    const REDIRECT_URI = 'https://wangnuni.github.io/image-to-googlecontacts/';
+    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&scope=${encodeURIComponent(SCOPES)}`;
     const popup = window.open(url, 'google-auth', 'width=500,height=600');
     const timer = setInterval(() => {
       try {
